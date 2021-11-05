@@ -185,4 +185,10 @@
 
 .chat__footer {
   margin-top: auto;
+  width: 100%;
+  
+  .form {
+    display: flex;
+    justify-content: space-between;
+  }
 }
