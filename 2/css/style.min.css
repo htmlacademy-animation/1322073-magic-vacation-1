@@ -1311,7 +1311,7 @@ img {
 }
 .chat__footer .form {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .disclaimer {
@@ -1969,9 +1969,9 @@ img {
   padding: 1rem 0;
   width: 10rem;
   color: #ffffff;
-  transform: translateX(-30px);
+  transform: translateX(-18rem);
   opacity: 0;
-  transition: all 0.3s cubic-bezier(0, 1, 0.1, 1);
+  transition: all 1s cubic-bezier(0, 1, 0.6, 1);
 }
 .page-header__logo:hover {
   opacity: 0.8;
@@ -2079,12 +2079,10 @@ img {
 .page-header__nav {
   display: flex;
   align-items: center;
-  transform: translateY(-20px);
   opacity: 0;
-  transition: all 0.3s cubic-bezier(0, 1, 0.1, 1);
+  transition: all 2s cubic-bezier(0, 0.8, 0.5, 1);
 }
 .loaded .page-header__nav {
-  transform: translateY(0);
   opacity: 1;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
@@ -2231,7 +2229,13 @@ img {
   }
 }
 .page-header__menu a.active::after {
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+.loaded .page-header__menu a.active::after {
   width: 100%;
+  right: auto;
+  left: 0;
 }
 .page-header__menu a:hover, .page-header__menu a:focus {
   color: #a67ee5;
@@ -2246,7 +2250,7 @@ img {
 }
 
 .page-header__social {
-  margin-left: 4.8rem;
+  margin-left: 4rem;
 }
 @media (min-width: 2000px) {
   .page-header__social {
@@ -3230,9 +3234,9 @@ img {
   color: #5f458c;
   background-color: #ffffff;
   z-index: 1;
-  transform: translateY(36px);
+  transform: translateY(18rem);
   opacity: 0;
-  transition: all 0.2s cubic-bezier(0, 1, 0, 1);
+  transition: all 1s cubic-bezier(0, 1, 0.45, 1);
 }
 .loaded .screen__footer {
   transform: translateY(0);
@@ -3689,12 +3693,10 @@ img {
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
-  transform: translateY(0);
   transition: all 0.4s ease-out;
 }
 .swiper-slide-active .slider__item-text, .swiper-slide-next .slider__item-text {
   opacity: 1;
-  transform: translateY(-10px);
 }
 @media (min-width: 2000px) {
   .slider__item-text {
@@ -3890,7 +3892,13 @@ img {
 }
 
 .social-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  overflow: visible;
+  width: 4.8rem;
+  height: 4rem;
 }
 .social-block:hover .social-block__list {
   opacity: 1;
@@ -3907,13 +3915,19 @@ img {
   outline: none;
   position: relative;
   display: block;
-  width: 4rem;
-  height: 4rem;
+  width: 1rem;
+  height: 1rem;
   color: #5f458c;
   border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0, 0, 0.34, 1.79);
 }
 .social-block__toggler:focus {
   outline: none;
+}
+.loaded .social-block__toggler {
+  width: 4rem;
+  height: 4rem;
+  opacity: 1;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .social-block__toggler {
