@@ -298,6 +298,12 @@
   }
 }
 
+.screen--intro {
+  &.active ~ .screen {
+    display: none;
+  }
+}
+
 .screen--story {
   display: flex;
   opacity: 1;
@@ -313,6 +319,7 @@
     width: 100%;
     height: 0;
     background-color: $c-dark;
+    z-index: 0;
   }
 
   &.screen--hidden {
