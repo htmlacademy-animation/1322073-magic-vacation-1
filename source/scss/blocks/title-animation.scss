@@ -1,0 +1,23 @@
+.title-animation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  display: inline-block;
+  transform: translateY(-1.75rem);
+  
+  .title-animation__line {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+  }
+
+  .title-animation__letter {
+    display: inline-block;
+    transform: translateY(15rem);      
+    will-change: transform;
+
+    .loaded & {
+      transform: translateY(1.75rem);
+    }
+  }
+}
