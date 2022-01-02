@@ -3,21 +3,23 @@
   display: flex;
   flex-direction: column;
   display: inline-block;
-  transform: translateY(-1.75rem);
   
   .title-animation__line {
     display: flex;
     flex-direction: row;
     overflow: hidden;
+    padding-top: 1.4rem;
+    margin-top: -1.4rem;
   }
-
+  
   .title-animation__letter {
     display: inline-block;
+    line-height: 1;
     transform: translateY(15rem);      
     will-change: transform;
 
-    .loaded & {
-      transform: translateY(1.75rem);
+    .active & {
+      transform: translateY(0);
     }
   }
 }

@@ -26,10 +26,11 @@ const wrapLines = textNode => {
   
   textNode.innerHTML = '';
   
-  words.forEach((word, i) => {
-    lineNode = wrapLetters(word);;
+  return words.map((word, i) => {
+    lineNode = wrapLetters(word);
     lineNode.classList.add(LINE_CLASS_NAME);    
-    textNode.appendChild(lineNode);        
+    textNode.appendChild(lineNode);
+    return lineNode;
   });
 }
 
@@ -54,10 +55,8 @@ const animateLine = (node, settings = {}, lineNumber = 0) => {
   });
 }
 
-const animateText = (node, settings) => {  
-  wrapLines(node);
-
-  const lineNodes = document.querySelectorAll(`.${LINE_CLASS_NAME}`);
+const animateText = (node, settings) => {
+  const lineNodes = wrapLines(node);
 
   lineNodes.forEach((node, i) => {
     animateLine(node, settings, i);
