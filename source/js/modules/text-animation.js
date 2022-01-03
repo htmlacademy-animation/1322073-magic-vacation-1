@@ -1,37 +1,55 @@
 const LETTER_CLASS_NAME = 'title-animation__letter';
+const TEMP_CLASS_NAME = 'title-animation__temp';
 const LINE_CLASS_NAME = 'title-animation__line';
 const ORDER = [
   [3, 1, 0, 1, 2, 1, 0, 4, 2, 0, 2, 0],
   [3, 4, 2, 0, 3, 1]
 ];
 
-const wrapLetters = text => {
+const wrapLetters = textNode => {
+  const text = textNode.innerHTML;
   const letters = text.split('');
-  const textNode = document.createElement('span');
  
-  letters.forEach((letter, i) => {
+  return letters.map(letter => {
     const letterNode = document.createElement('span');
     letterNode.textContent = letter;
     letterNode.classList.add(LETTER_CLASS_NAME);
-    textNode.appendChild(letterNode);        
+    return letterNode;
   });
-
-  return textNode;
 }
 
 const wrapLines = textNode => {
-  const text = textNode.innerHTML;
-  const words = text.split(' ');
+  const letterNodes = wrapLetters(textNode);
+  const lineNodes = [];
   let lineNode;
-  
+
   textNode.innerHTML = '';
   
-  return words.map((word, i) => {
-    lineNode = wrapLetters(word);
-    lineNode.classList.add(LINE_CLASS_NAME);    
-    textNode.appendChild(lineNode);
-    return lineNode;
+  letterNodes.forEach(node => {
+    textNode.appendChild(node);
   });
+  
+  textNode.classList.add(TEMP_CLASS_NAME);
+  
+  letterNodes.forEach((node, i) => {
+    if(i === 0 || node.offsetTop !== letterNodes[i - 1].offsetTop) {
+      lineNode = document.createElement('span');
+      lineNode.classList.add(LINE_CLASS_NAME);
+      lineNodes.push(lineNode);
+    }
+    
+    lineNode.appendChild(node.cloneNode(true));
+  });
+  
+  textNode.innerHTML = '';
+
+  lineNodes.forEach(node => {
+    textNode.appendChild(node);
+  })
+
+  textNode.classList.remove(TEMP_CLASS_NAME);
+
+  return lineNodes;
 }
 
 const animateLetter = (node, settings = {}) => {
