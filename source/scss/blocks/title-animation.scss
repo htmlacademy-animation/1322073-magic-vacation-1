@@ -19,7 +19,7 @@
   .title-animation__letter {
     display: inline-block;
     line-height: 1;
-    min-width: 1px;
+    min-width: 1rem;
     min-height: 1px;
     transform: translateY(15rem);      
     will-change: transform;

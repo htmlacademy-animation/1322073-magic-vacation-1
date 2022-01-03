@@ -1,3 +1,4 @@
+const TEXT_CLASS_NAME = 'title-animation';
 const LETTER_CLASS_NAME = 'title-animation__letter';
 const TEMP_CLASS_NAME = 'title-animation__temp';
 const LINE_CLASS_NAME = 'title-animation__line';
@@ -64,16 +65,19 @@ const animateLetter = (node, settings = {}) => {
 const animateLine = (node, settings = {}, lineNumber = 0) => {
   const orderLine = ORDER[lineNumber % ORDER.length];
   const lineDelay = lineNumber * 0.5;
+  const originalDelay = settings.delay || 0;
 
   node.childNodes.forEach((letter, i) => {
     const orderLetter = orderLine[i % orderLine.length];
     const letterDelay = orderLetter * 0.1 + lineDelay;
-    const delay = `${letterDelay}s`;
+    const delay = `${originalDelay + letterDelay}s`;
     animateLetter(letter, { ...settings, delay });
   });
 }
 
 const animateText = (node, settings) => {
+  node.classList.add(TEXT_CLASS_NAME);
+
   const lineNodes = wrapLines(node);
 
   lineNodes.forEach((node, i) => {
