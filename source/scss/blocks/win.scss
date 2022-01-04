@@ -1,0 +1,49 @@
+.result__image--win {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
+.win {
+  display: block;
+  position: absolute;
+  bottom: 17vh;
+  width: 1026px;
+  height: 510px;
+  
+  .win__image {
+    position: absolute;
+  }
+  
+  .win__image--leaf1 {
+    left: 515px;
+    width: 412px;
+    height: 387px;
+  }
+  
+  .win__image--leaf2 {
+    width: 416px;
+    height: 359px;
+    bottom: 2px;
+  }
+
+  .win__image--leaf-green {
+    width: 493px;
+    height: 235px;
+    right: 72px;
+    top: 199px;
+  }
+
+  .win__image--suitcase {
+    width: 397px;
+    height: 507px;
+    left: 263px;
+  }
+
+  .win__image--flamingo {
+    width: 357px;
+    height: 388px;
+    left: 173px;
+    top: 118px;
+  }
+}
