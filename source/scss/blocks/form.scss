@@ -46,7 +46,8 @@
   outline: none;
   transition: width 1s ease-in-out;
   
-  .active & {    
+  .active &,
+  .screen--show & {    
     width: calc(100% - 21rem);
 
     @media (min-width: $stop-scaling) {
