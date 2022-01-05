@@ -33,11 +33,10 @@
 
     .screen--show & {
       animation-fill-mode: forwards;
-      animation-direction: alternate;
       animation-timing-function: ease-in-out;
     }
   }
-  
+
   .win__image--leaf1 {
     left: 515px;
     width: 412px;
@@ -93,6 +92,16 @@
     left: 173px;
     top: 118px;
     transform: translateY(35rem);
+
+    .screen--show & {
+      transform: translateY(-1rem);
+      transform-origin: 190px 230px 0;
+      animation-name: move-flamingo;
+      animation-duration: 1s;
+      animation-delay: 1s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+    }
   }
 }
 
@@ -165,5 +174,14 @@
   }
   100% {
     transform: rotate(0);
+  }
+}
+
+@keyframes move-flamingo {
+  from {
+    transform: translateY(-1rem) rotate(0);
+  }
+  to {
+    transform: translateY(1rem) rotate(6deg);
   }
 }
