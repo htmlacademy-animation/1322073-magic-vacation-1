@@ -155,12 +155,47 @@
   }
 }
 
+@keyframes rolling-pagination-prev {
+  from {
+    opacity: 0;
+    transform: translateX(-7rem) rotate(-180deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
+@keyframes rolling-pagination-next {
+  from {
+    opacity: 0;
+    transform: translateX(7rem) rotate(180deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotate(0);
+  }
+}
+
 .slider__control {
   @include btn-reset;
   position: relative;
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+
+  .active & {
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    
+    &.slider__control--prev {
+      animation-name: rolling-pagination-prev;
+    }
+
+    &.slider__control--next {
+      animation-name: rolling-pagination-next;
+    }
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
