@@ -1,6 +1,7 @@
 .form {
   position: relative;
   display: flex;
+  justify-content: end;
   align-items: center;
 }
 
@@ -85,6 +86,16 @@
 }
 
 .form__button {
+  opacity: 0;
+  color: transparent;
+
+  .screen--show & {
+    opacity: 1;
+    color: $c-dark;
+    transition: opacity 0.5s ease-out,
+                color 0.5s ease-out 0.5s;
+  }
+
   @media (orientation: portrait) {
     position: relative;
     flex: none;
@@ -131,22 +142,36 @@
 
 .form--result {
   .form__field {
-    width: calc(100% - 31rem);
+    width: 0;
 
-    @media (min-width: $stop-scaling) {
-      width: calc(100% - 310px);
+    &::placeholder {
+      color: transparent;
     }
 
-    @media (orientation: portrait) {
-      width: calc(100% - 5rem);
-    }
-
-    @media (max-width: $tablet) and (orientation: landscape) {
-      width: calc(100% - 9rem);
-    }
-
-    @media (max-width: $mobile) and (orientation: landscape) {
-      width: calc(100% - 5rem);
+    .screen--show & {
+      width: calc(100% - 31rem);
+      transition: width 1s ease-in-out 0.5s;
+      
+      &::placeholder {
+        color: #767676;
+        transition: color 0.2s ease-out 1.5s;
+      }
+      
+      @media (min-width: $stop-scaling) {
+        width: calc(100% - 310px);
+      }
+      
+      @media (orientation: portrait) {
+        width: calc(100% - 5rem);
+      }
+      
+      @media (max-width: $tablet) and (orientation: landscape) {
+        width: calc(100% - 9rem);
+      }
+      
+      @media (max-width: $mobile) and (orientation: landscape) {
+        width: calc(100% - 5rem);
+      }
     }
   }
 }
