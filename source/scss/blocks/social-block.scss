@@ -25,6 +25,14 @@
   color: $c-dark;
   border-radius: 50%;
   transition: all 0.5s cubic-bezier(0, 0, 0.34, 1.79);
+
+  .blue-theme & {
+    color: $c-blue;
+  }
+  
+  .cyan-theme & {
+    color: $c-cyan;
+  }
   
   .loaded & {
     width: 4rem;
@@ -62,6 +70,14 @@
   .social-block--active & {
     color: $c-purple;
 
+    .blue-theme & {
+      color: $c-cyan;
+    }
+    
+    .cyan-theme & {
+      color: $c-blue;
+    }
+
     &::before {
       width: 112.5%;
       height: 112.5%;
@@ -71,6 +87,22 @@
   &:focus {
     color: $c-purple;
     outline: none;
+
+    .blue-theme & {
+      color: $c-cyan;
+  
+      &::before {
+        border-color: $c-cyan;
+      }
+    }
+
+    .cyan-theme & {
+      color: $c-blue;
+
+      &::before {
+        border-color: $c-blue;
+      }
+    }
 
     &::before {
       border-color: $c-purple;
@@ -92,6 +124,16 @@
       height: 100%;
       background-color: $c-purple;
       border-color: $c-purple;
+
+      .blue-theme & {
+        background-color: $c-cyan;
+        border-color: $c-cyan;
+      }
+      
+      .cyan-theme & {
+        background-color: $c-blue;
+        border-color: $c-blue;
+      }
     }
   }
 }
@@ -200,15 +242,39 @@
   @media (max-width: $tablet) and (orientation: portrait) {
     color: $c-light;
     background-color: $c-dark;
+
+    .blue-theme & {
+      background-color: $c-cyan;
+    }
+    
+    .cyan-theme & {
+      background-color: $c-blue;
+    }
   }
 
   @media (max-width: $mobile) and (orientation: landscape) {
     color: $c-light;
     background-color: $c-dark;
+
+    .blue-theme & {
+      background-color: $c-cyan;
+    }
+    
+    .cyan-theme & {
+      background-color: $c-blue;
+    }
   }
 
   &:hover {
     color: $c-purple;
+
+    .blue-theme & {
+      color: $c-cyan;
+    }
+    
+    .cyan-theme & {
+      color: $c-blue;
+    }
   }
 
   &:focus {
@@ -216,6 +282,16 @@
     background-color: $c-light;
     border-color: $c-purple;
     outline: none;
+
+    .blue-theme & {
+      background-color: $c-cyan;
+      border-color: $c-cyan;
+    }
+    
+    .cyan-theme & {
+      background-color: $c-blue;
+      border-color: $c-blue;
+    }
   }
 
   &:active,
@@ -223,6 +299,14 @@
     color: $c-purple;
     background-color: $c-light;
     border-color: $c-light;
+
+    .blue-theme & {
+      color: $c-cyan;
+    }
+    
+    .cyan-theme & {
+      color: $c-blue;
+    }
   }
 
   svg {

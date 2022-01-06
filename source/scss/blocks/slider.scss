@@ -184,6 +184,14 @@
   height: 4rem;
   color: $c-dark;
 
+  .blue-theme & {
+    color: $c-blue;
+  }
+  
+  .cyan-theme & {
+    color: $c-cyan;
+  }
+
   .active & {
     animation-duration: 1s;
     animation-timing-function: ease-out;
@@ -229,6 +237,14 @@
   &:hover {
     color: $c-purple;
 
+    .blue-theme & {
+      color: $c-blue;
+    }
+    
+    .cyan-theme & {
+      color: $c-cyan;
+    }
+
     &::before {
       width: 112.5%;
       height: 112.5%;
@@ -242,6 +258,22 @@
     &::before {
       border-color: $c-purple;
     }
+
+    .blue-theme & {
+      color: $c-blue;
+  
+      &::before {
+        border-color: $c-blue;
+      }
+    }
+    
+    .cyan-theme & {
+      color: $c-cyan;
+  
+      &::before {
+        border-color: $c-cyan;
+      }
+    }
   }
 
   &:active,
@@ -253,6 +285,16 @@
       height: 100%;
       background-color: $c-purple;
       border-color: $c-purple;
+
+      .blue-theme & {
+        background-color: $c-cyan;
+        border-color: $c-cyan;
+      }
+      
+      .cyan-theme & {
+        background-color: $c-blue;
+        border-color: $c-blue;
+      }
     }
   }
 

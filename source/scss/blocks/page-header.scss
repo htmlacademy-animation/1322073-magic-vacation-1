@@ -298,6 +298,24 @@
     &:focus {
       color: $c-purple;
       outline: none;
+
+      .blue-theme & {
+        color: $c-cyan;
+
+        &::after {
+          background-color: $c-cyan;
+        }
+      }
+
+      .cyan-theme & {
+        color: $c-blue;
+
+        &::after {
+          background-color: $c-blue;
+        }
+      }
+
+
       
       &::after {
         width: 100%;
