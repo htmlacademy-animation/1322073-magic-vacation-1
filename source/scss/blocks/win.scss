@@ -1,0 +1,187 @@
+.result__image--win {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+}
+
+.win {
+  display: block;
+  position: absolute;
+  bottom: 17vh;
+  width: 1026px;
+  height: 510px;
+  
+  .win__image {
+    position: absolute;
+  }
+  
+  .win__image--suitcase,
+  .win__image--flamingo {
+    opacity: 0;
+    transition: all 1s ease-out;
+
+    .screen--show & {
+      opacity: 1;
+      transform: translate(0, 0) scale(1);
+    }
+  }
+  
+  .win__image--leaf1,
+  .win__image--leaf2,
+  .win__image--leaf-green {
+    opacity: 0;
+
+    .screen--show & {
+      animation-fill-mode: forwards;
+      animation-timing-function: ease-in-out;
+    }
+  }
+
+  .win__image--leaf1 {
+    left: 515px;
+    width: 412px;
+    height: 387px;
+    transform-origin: left 110px 0;
+
+    .screen--show & {
+      animation-name: leaf-appear, move-right-leaf;
+      animation-duration: 0.8s, 2s;
+      animation-delay: 0.9s, 0.9s;
+    }
+  }
+  
+  .win__image--leaf2 {
+    width: 416px;
+    height: 359px;
+    bottom: 2px;
+    transform-origin: right 110px 0;
+    
+    .screen--show & {
+      animation-name: leaf-appear, move-left-leaf;
+      animation-duration: 0.8s, 2s;
+      animation-delay: 0.8s, 0.8s;
+    }
+  }
+
+  .win__image--leaf-green {
+    width: 493px;
+    height: 235px;
+    right: 72px;
+    top: 199px;
+    transform-origin: left 90px 0;
+
+    .screen--show & {
+      animation-name: leaf-appear, move-green-leaf;
+      animation-duration: 2s, 2s;
+      animation-delay: 1.2s, 1.2s;
+    }
+  }
+
+  .win__image--suitcase {
+    width: 397px;
+    height: 507px;
+    left: 263px;
+    opacity: 0.8;
+    transform: translateY(35rem) scale(0.2);
+    transition-timing-function: cubic-bezier(0, 0, 0.2, 1.5);
+  }
+
+  .win__image--flamingo {
+    width: 357px;
+    height: 388px;
+    left: 173px;
+    top: 118px;
+    transform: translateY(35rem);
+
+    .screen--show & {
+      transform: translateY(-1rem);
+      transform-origin: 190px 230px 0;
+      animation-name: move-flamingo;
+      animation-duration: 1s;
+      animation-delay: 1s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes leaf-appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes move-left-leaf {
+  0% {
+    transform: rotate(30deg);
+  }
+  20% {
+    transform: rotate(-12deg);
+  }
+  40% {
+    transform: rotate(20deg);
+  }
+  60% {
+    transform: rotate(-6deg);
+  }
+  80% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes move-right-leaf {
+  0% {
+    transform: rotate(-30deg);
+  }
+  20% {
+    transform: rotate(12deg);
+  }
+  40% {
+    transform: rotate(-20deg);
+  }
+  60% {
+    transform: rotate(6deg);
+  }
+  80% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes move-green-leaf {
+  0% {
+    transform: rotate(-15deg);
+  }
+  20% {
+    transform: rotate(6deg);
+  }
+  40% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(3deg);
+  }
+  80% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes move-flamingo {
+  from {
+    transform: translateY(-1rem) rotate(0);
+  }
+  to {
+    transform: translateY(1rem) rotate(6deg);
+  }
+}

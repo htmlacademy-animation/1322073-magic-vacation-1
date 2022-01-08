@@ -1,0 +1,31 @@
+.title-animation {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &.title-animation__temp {
+    flex-flow: row wrap;
+  }
+  
+  .title-animation__line {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    overflow: hidden;
+    padding-top: 1.4rem;
+    margin-top: -1.4rem;
+  }
+  
+  .title-animation__letter {
+    display: inline-block;
+    line-height: 1;
+    min-width: 1rem;
+    min-height: 1px;
+    transform: translateY(15rem);      
+    will-change: transform;
+
+    .active & {
+      transform: translateY(0);
+    }
+  }
+}
