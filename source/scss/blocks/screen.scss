@@ -47,9 +47,27 @@
   transform: translateY(18rem);
   transition: transform 1s ease-in;
 
-  .screen.active &,
-  .rules-screen-active.prizes-screen-active & {
+  .screen.active & {
     transform: translateY(0);
+  }
+}
+
+body[data-active-screen="3"][data-prev-screen="2"],
+body[data-active-screen="2"][data-prev-screen="3"] {
+  .screen__disclaimer, .screen__footer {
+    z-index: 1;
+    transform: translateY(0);
+    transition: transform 1s ease-in;
+
+    button {
+      opacity: 0;
+      transition: opacity 0.2s ease-in;
+
+      .screen.active & {
+        opacity: 1;
+        transition-delay: 0.5s;
+      }      
+    }
   }
 }
 
