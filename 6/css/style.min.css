@@ -1013,6 +1013,7 @@ img {
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-position: center;
+  pointer-events: none;
 }
 @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
   .animation-screen {
@@ -1729,6 +1730,9 @@ img {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+}
+.screen-hidden .game__body {
+  display: none;
 }
 
 .game__buttons {
@@ -3276,10 +3280,12 @@ img {
   min-height: 100vh;
   z-index: 1;
   overflow: hidden;
+  opacity: 1;
+  transition: opacity 0.2s ease-in;
 }
 .screen--hidden {
-  display: none;
   opacity: 0;
+  pointer-events: none;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .screen {
@@ -3303,6 +3309,7 @@ img {
   justify-content: center;
   align-items: center;
   z-index: 1;
+  pointer-events: none;
 }
 @media (min-width: 2000px) {
   .screen__wrapper {
@@ -3328,6 +3335,40 @@ img {
   z-index: 1;
 }
 
+.screen__disclaimer, .screen__footer {
+  z-index: 1;
+  transform: translateY(18rem);
+  transition: transform 1s ease-in;
+}
+.screen.active .screen__disclaimer, .screen.active .screen__footer {
+  transform: translateY(0);
+}
+
+body[data-active-screen="3"][data-prev-screen="2"] .screen, body[data-active-screen="3"][data-prev-screen="2"] .screen.active,
+body[data-active-screen="2"][data-prev-screen="3"] .screen,
+body[data-active-screen="2"][data-prev-screen="3"] .screen.active {
+  transition-duration: 0;
+}
+body[data-active-screen="3"][data-prev-screen="2"] .screen__disclaimer, body[data-active-screen="3"][data-prev-screen="2"] .screen__footer,
+body[data-active-screen="2"][data-prev-screen="3"] .screen__disclaimer,
+body[data-active-screen="2"][data-prev-screen="3"] .screen__footer {
+  z-index: 1;
+  transform: translateY(0);
+  transition: transform 1s ease-in;
+}
+body[data-active-screen="3"][data-prev-screen="2"] .screen__disclaimer button, body[data-active-screen="3"][data-prev-screen="2"] .screen__footer button,
+body[data-active-screen="2"][data-prev-screen="3"] .screen__disclaimer button,
+body[data-active-screen="2"][data-prev-screen="3"] .screen__footer button {
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+}
+.screen.active body[data-active-screen="3"][data-prev-screen="2"] .screen__disclaimer button, .screen.active body[data-active-screen="3"][data-prev-screen="2"] .screen__footer button,
+.screen.active body[data-active-screen="2"][data-prev-screen="3"] .screen__disclaimer button,
+.screen.active body[data-active-screen="2"][data-prev-screen="3"] .screen__footer button {
+  opacity: 1;
+  transition-delay: 0.5s;
+}
+
 .screen__footer {
   position: absolute;
   bottom: 0;
@@ -3335,20 +3376,13 @@ img {
   right: 0;
   color: #5f458c;
   background-color: #ffffff;
-  z-index: 1;
-  transform: translateY(18rem);
-  opacity: 0;
-  transition: all 1s cubic-bezier(0, 1, 0.45, 1);
-}
-.loaded .screen__footer {
-  transform: translateY(0);
-  opacity: 1;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
   .screen__footer {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 0 3.6rem 0 0;
+    transition: all 0.5s ease-out;
   }
   .screen__footer.screen__footer--full {
     width: 100%;
@@ -3360,6 +3394,7 @@ img {
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 0 3.6rem 0 0;
+    transition: all 0.5s ease-out;
   }
   .screen__footer.screen__footer--full {
     width: 100%;
@@ -3390,17 +3425,21 @@ img {
 @media (max-width: 1024px) and (orientation: portrait) {
   .screen__footer-wrapper {
     opacity: 0;
+    transition: opacity 0.2s linear;
   }
   .screen__footer--full .screen__footer-wrapper {
     opacity: 1;
+    transition-delay: 0.5s;
   }
 }
 @media (max-width: 768px) and (orientation: landscape) {
   .screen__footer-wrapper {
     opacity: 0;
+    transition: opacity 0.2s linear;
   }
   .screen__footer--full .screen__footer-wrapper {
     opacity: 1;
+    transition-delay: 0.5s;
   }
 }
 
@@ -3624,7 +3663,8 @@ img {
 }
 
 .screen--intro.active ~ .screen {
-  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
 }
 
 .screen--story {
@@ -3646,7 +3686,7 @@ img {
 }
 .screen--story.screen--hidden .animated-bg {
   height: 100%;
-  transition: height 1s ease 0s;
+  transition: height 0.5s ease-out 0s;
   z-index: 1;
 }
 @media (orientation: portrait) {
@@ -3661,9 +3701,8 @@ img {
 }
 .screen--prizes.active {
   opacity: 1;
-  transition: opacity 0.2s ease 0.5s;
+  transition: opacity 0.2s ease 0.2s;
 }
-
 .screen--game {
   position: relative;
   background-color: #5f458c;
