@@ -115,6 +115,12 @@
   font-size: 2.4rem;
   line-height: 1.2;
   color: $c-light;
+  opacity: 0;
+
+  .screen--show & {
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+  }
 
   @media (min-width: $stop-scaling) {
     margin: auto auto 10px;
@@ -147,6 +153,13 @@
     width: 4rem;
     height: 4rem;
     color: $c-dark;
+    transform: translateX(4rem) rotate(1turn);
+    transform-origin: center center 0;
+
+    .screen--show & {
+      transform: translateX(0) rotate(0);
+      transition: transform 0.5s ease-in-out;
+    }
 
     @media (min-width: $stop-scaling) {
       margin-left: 15px;
