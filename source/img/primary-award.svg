@@ -1,4 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 350 330">
+  <defs>
+    <clipPath id="window">
+      <path d="M275,225.43H257.87a17.6,17.6,0,0,1-17.52-17.58V170a17.6,17.6,0,0,1,17.52-17.58H275A17.6,17.6,0,0,1,292.51,170v37.83A17.61,17.61,0,0,1,275,225.43Z"/>
+    </clipPath>
+  </defs>
+  
   <g id="airship">
     <animate
       attributeType="CSS"
@@ -248,6 +254,7 @@
       />
     </line>
   </g>
+
   <g id="mountains">
     <path d="M289.94,327.88H244.88L212.8,296.58a1.89,1.89,0,0,0-2.44,0l-10.2,10.23a1.72,1.72,0,0,1-2.25,0l-19-20.17a2.4,2.4,0,0,0-3.1,0l-26.42,25.64a1.71,1.71,0,0,1-2.25,0l-2.63-2.92a1.71,1.71,0,0,0-2.31,0 L 124.63,329 H 80.78" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2">
       <animate
@@ -261,6 +268,7 @@
       />
     </path>
   </g>
+
   <path id="window" d="M204.25,231.88h-2.05a3.45,3.45,0,0,0-3.43,3.45v2.92a3.45,3.45,0,0,0,3.43,3.45h2.05a3.45,3.45,0,0,0,3.43-3.45v-2.92A3.44,3.44,0,0,0,204.25,231.88Z" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke-opacity="0">
     <animate
       attributeName="stroke-opacity"
@@ -279,6 +287,32 @@
       fill="freeze"
     />
   </path>
+
+  <g clip-path="url(#window)">
+    <g transform="translate(220 160)" stroke-opacity="0">
+      <animate
+        attributeName="stroke-opacity"
+        begin="3.7s"
+        to="1"
+        dur="0.5s"
+        repeatCount="1"
+        fill="freeze"
+      />
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        from="290 160"
+        to="-120 160"
+        dur="3s"
+        repeatCount="indefinite"
+      />
+      <line x1="28.18" y1="38.34" x2="91.09" y2="38.34" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path d="M41.77,97.54H77.06a12.4,12.4,0,1,1,24.8,0h17.93" transform="translate(-40.77 -69.46)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <line x1="218.19" y1="23.72" x2="257.97" y2="23.72" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <path d="M278.75,82.91H251.39a12.4,12.4,0,1,0-24.8,0H208.65" transform="translate(-40.77 -69.46)" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+      <line x1="246.24" y1="13.45" x2="268.43" y2="13.45" fill="none" stroke="#fff" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/>
+    </g>
+  </g>
 
   <g id="ski">
     <animate
