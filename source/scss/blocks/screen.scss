@@ -378,8 +378,8 @@ body[data-active-screen="2"][data-prev-screen="3"] {
     transition: opacity 0.2s ease 0.2s;
   }
 
-  &.screen--hidden {
-
+  .sa-clouds {
+    opacity: 0;
   }
 }
 
