@@ -43,6 +43,17 @@
       fill="freeze"
     />
     <g id="flowers">
+      <animateTransform
+        attributeName="transform"
+        type="rotate"
+        begin="0.5s"
+        values="40 165 275; -8 165 275; 0 165 275; -4 165 275; 0 165 275"
+        keyTimes="0; 0.2; 0.4; 0.6; 1"
+        dur="1s"
+        repeatCount="1"
+        additive="sum"
+        fill="freeze"
+      />
       <path d="M180.73,277.8s8.3-74.59,39.71-90" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
       <path d="M217.95,187.12l9.27-24.49a22,22,0,0,1,8.72,3,7.87,7.87,0,0,1,9.72,12.33,22.14,22.14,0,0,1,.86,9.18l-26,3.3a2.45,2.45,0,0,1-2.6-3.29" fill="#3b7bf2"/>
       <path d="M178.24,287.63s6.89-44.68,37.95-56.53" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
