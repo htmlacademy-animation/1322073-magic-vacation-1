@@ -423,11 +423,6 @@ body[data-active-screen="2"][data-prev-screen="3"] {
   opacity: 0;
   pointer-events: none;
 
-  .symbol {
-    stroke-dasharray: 83;
-    stroke-dashoffset: 0;
-  }
-
   @keyframes dash {
     to {
       stroke-dasharray: 790;
@@ -437,11 +432,6 @@ body[data-active-screen="2"][data-prev-screen="3"] {
   &.screen--show {
     opacity: 1;
     pointer-events: auto;
-
-    .symbol {
-      animation: dash 2s linear;
-      animation-fill-mode: forwards;
-    }
   }
 }
 
