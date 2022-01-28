@@ -1,4 +1,5 @@
 import throttle from 'lodash/throttle';
+import gameCounter from './game-counter.js';
 
 export default class FullPageScroll {
   constructor() {
@@ -62,7 +63,12 @@ export default class FullPageScroll {
     document.body.dataset.activeScreen = this.activeScreen;
 
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
-    setTimeout(() => {
+
+    if(this.activeScreen === 4) {
+      gameCounter();
+    }
+
+    setTimeout(() => {      
       this.screenElements[this.activeScreen].classList.add(`active`);
     }, 100);
   }
