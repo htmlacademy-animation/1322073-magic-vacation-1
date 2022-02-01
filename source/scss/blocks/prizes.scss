@@ -231,10 +231,16 @@
 
 .prizes__desc {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   margin: 5.6rem 0 0 0;
   font-size: 1.8rem;
   line-height: 1.1;
+  opacity: 0;
+
+  &.prizes__desc--active {
+    opacity: 1;
+    transition: opacity 1s ease-out;
+  }
 
   @media (min-width: $stop-scaling) {
     margin-top: 56px;
@@ -265,6 +271,15 @@
     font-weight: 400;
     font-size: 12rem;
     line-height: 0.55;
+
+    .prizes__item--journeys &,
+    .prizes__item--cases & {
+      width: 6rem;
+    }
+
+    .prizes__item--codes & {
+      width: 18.5rem;
+    }
 
     @media (min-width: $stop-scaling) {
       font-size: 120px;
@@ -330,3 +345,13 @@
     }
   }
 }
+
+.prizes__text {
+  transform: translateX(2rem);
+
+  .prizes__desc--active & {
+    transform: translateX(0);
+    transition: transform 1s ease-out;
+  }
+}
+
