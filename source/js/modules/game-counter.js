@@ -4,7 +4,7 @@ const FPS = 12;
 const prizes = {
   journeys: {
     amount: [1, 3],
-    start: 2000
+    start: 0
   },
   cases: {
     amount: [1, 7],
@@ -12,7 +12,7 @@ const prizes = {
   },
   codes: {
     amount: [11, 900],
-    start: 4000
+    start: 6000
   }
 };
 
@@ -71,11 +71,14 @@ const launchAllPrizesCounters = () => {
 
   Object.values(prizes).forEach(prize => {
     setTimeout(() => {
-      prizesCounter(prize);
       prize.startAnimation.beginElement();
       prize.image.classList.remove('prizes__icon--hidden');
     },
     prize.start);
+
+    setTimeout(() => {
+      prizesCounter(prize);
+    }, prize.start + 1500);
   });
 }
 
