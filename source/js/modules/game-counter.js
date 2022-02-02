@@ -64,10 +64,18 @@ const launchAllPrizesCounters = () => {
   Object.keys(prizes)
     .forEach(key => {
       prizes[key].node = document.querySelector(`.prizes__item--${key}`);
+      prizes[key].image = prizes[key].node.querySelector('.prizes__icon');
+      prizes[key].startAnimation = document.querySelector(`#${key}start`);
+      // prizes[key].image.classList.remove('prizes__icon--hidden');
     });
 
   Object.values(prizes).forEach(prize => {
-    setTimeout(() => { prizesCounter(prize); }, prize.start);
+    setTimeout(() => {
+      prizesCounter(prize);
+      prize.startAnimation.beginElement();
+      prize.image.classList.remove('prizes__icon--hidden');
+    },
+    prize.start);
   });
 }
 

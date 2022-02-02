@@ -227,6 +227,10 @@
     width: 100%;
     height: auto;
   }
+
+  &.prizes__icon--hidden {
+    opacity: 0;
+  }
 }
 
 .prizes__desc {
