@@ -1,5 +1,5 @@
 import throttle from 'lodash/throttle';
-import gameCounter from './game-counter.js';
+import { gameCounter, launchAllPrizesCounters } from './game-counter.js';
 
 export default class FullPageScroll {
   constructor() {
@@ -68,7 +68,11 @@ export default class FullPageScroll {
       gameCounter();
     }
 
-    setTimeout(() => {      
+    if(this.activeScreen === 2) {
+      launchAllPrizesCounters();
+    }
+
+    setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);
     }, 100);
   }
